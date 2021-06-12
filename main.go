@@ -55,6 +55,17 @@ func addProduct() Product {
 	return newProduct
 }
 
+func findExistingproduct(productArr []Product) {
+	var existingProduct string
+	existingProduct = inputString("enter the name of product that you are looking for")
+	for e := range productArr {
+		if existingProduct == productArr[e].name {
+			fmt.Print("the product is existing:\n")
+			fmt.Print("%v", existingProduct)
+		}
+	}
+}
+
 func main() {
 
 	aproduct1 := Product{2, "cheese", 3.4, 5}
@@ -76,7 +87,8 @@ func main() {
 
 		printAllProducts(productArray)
 	case 3:
-		fmt.Print("3. find existing product\n")
+
+		findExistingproduct(productArray)
 	case 4:
 		fmt.Print("4. edit existing product\n")
 	case 5:
